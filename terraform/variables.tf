@@ -3,28 +3,23 @@ variable "aws_region" {
   type        = string
 }
 
-variable "vpc_cidr_block" {
-  description = "VPC CIDR block"
+variable "name" {
+  description = "Project name"
   type        = string
 }
 
-variable "public_subnets" {
-  description = "A map with public subnets"
-  type        = map(map(string))
-}
-
-variable "private_subnets" {
-  description = "A map with private subnets (with NAT)"
-  type        = map(map(string))
-}
-
-variable "isolated_subnets" {
-  description = "A map with isolated subnets (without Internet access)"
-  type        = map(map(string))
+variable "vpc" {
+  description = "VPC configuration"
+  type = object({
+    cidr_block       = string
+    public_subnets   = map(map(string))
+    private_subnets  = map(map(string))
+    isolated_subnets = map(map(string))
+  })
 }
 
 variable "tags" {
-  description = "All resources created by this module will be tagged with these tags"
+  description = "All resources will be tagged with these tags"
   type        = map(string)
   default     = {}
 }
