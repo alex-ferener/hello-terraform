@@ -50,6 +50,14 @@ vpc = {
   }
 }
 
+eks = {
+  version                 = "1.21"
+  endpoint_private_access = true
+  endpoint_public_access  = true
+  public_access_cidrs     = ["0.0.0.0/0"]
+  service_ipv4_cidr       = "10.100.0.0/16"
+}
+
 tags = {
   "project" : "hello"
 }
