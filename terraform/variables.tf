@@ -8,6 +8,16 @@ variable "name" {
   type        = string
 }
 
+variable "chart_repo" {
+  description = "Helm chart repository"
+  type        = string
+}
+
+variable "chart_version" {
+  description = "Helm chart version"
+  type        = string
+}
+
 variable "vpc" {
   description = "VPC configuration"
   type = object({

@@ -1,5 +1,7 @@
-aws_region = "eu-central-1"
-name       = "hello"
+aws_region    = "eu-central-1"
+name          = "hello"
+chart_repo    = "oci://public.ecr.aws/x1u4e0v6/hello"
+chart_version = "0.1.0"
 
 vpc = {
   cidr_block = "172.30.0.0/16"
