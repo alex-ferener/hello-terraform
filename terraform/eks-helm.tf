@@ -7,6 +7,7 @@ resource "null_resource" "helm_install" {
   provisioner "local-exec" {
     command = <<-SHELL
       aws eks update-kubeconfig --region ${var.aws_region} --name ${var.name}
+      aws ecr-public get-login-password --region us-east-1 | helm registry login --username AWS --password-stdin public.ecr.aws
       helm upgrade --install ${var.name} ${var.chart_repo} --version ${var.chart_version}
       # wait a few seconds before requesting the endpoint in order to prevent a retrieval error
       sleep 5
