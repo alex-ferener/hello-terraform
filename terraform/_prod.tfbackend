@@ -1,3 +1,0 @@
-bucket = "ferener-temp"
-key    = "terraform/state.tf"
-region = "eu-central-1"
